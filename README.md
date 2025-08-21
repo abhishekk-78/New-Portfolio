@@ -3,6 +3,8 @@
 
 A modern, responsive portfolio website featuring **3D effects** ✨ and **animations** 🎬, built with **HTML, CSS, and JavaScript**.
 
+🌍 **Live Demo:** [Visit Website](https://abhishekk-78.github.io/New-Portfolio/) 🚀
+
 ## 🚀 Features
 
 * 📱 **Responsive Design** – Fully responsive layout that works on all device sizes
@@ -88,3 +90,4 @@ The contact form uses **Google Apps Script** to submit data to a **Google Sheet*
 
 ---
 
+Do you want me to also **add a "📸 Preview Screenshot" section** with an image of your live site (so GitHub visitors see how it looks without opening the link)?
