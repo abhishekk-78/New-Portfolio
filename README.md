@@ -89,5 +89,3 @@ The contact form uses **Google Apps Script** to submit data to a **Google Sheet*
 ⭐ If you like this project, don’t forget to **star this repository**! 🌟
 
 ---
-
-Do you want me to also **add a "📸 Preview Screenshot" section** with an image of your live site (so GitHub visitors see how it looks without opening the link)?
