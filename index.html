@@ -1005,36 +1005,87 @@
 
 
     <!-- Contact Section -->
-    <div id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="contact-left">
-                    <h1 class="sub-title">Contact Me</h1>
-                    <p><i class="fa-solid fa-envelope"></i>abhishekgupta386464@gmail.com</p>
-                    <p><i class="fa-solid fa-phone"></i>93214*****</p>
-                    <div class="social-icons fade-in">
-                        <a href="https://www.facebook.com/profile.php?id=100015985479535" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/abhishekgupta_78/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://twitter.com/Official_abhi07" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="https://www.linkedin.com/in/abhishekgupta78/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
-                    </div>
-                    <a href="#" class="btn btn2">Download CV</a>
+   <div id="contact">
+    <div class="container">
+        <div class="row">
+            <!-- Left Side -->
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-envelope"></i> abhishekgupta386464@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> 93214*****</p>
+                <div class="social-icons fade-in">
+                    <a href="https://www.facebook.com/profile.php?id=100015985479535" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/abhishekgupta_78/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://twitter.com/Official_abhi07" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/abhishekgupta78/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
-                <div class="contact-right">
-                    <form name="submit-to-google-sheet">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <textarea name="message" rows="6" placeholder="Your Message"></textarea>
-                        <button type="submit" class="btn btn2">Submit</button>
-                    </form>
-                    <span id="msg"></span>
-                </div>
+                <a href="#" class="btn btn2">Download CV</a>
+            </div>
+
+            <!-- Right Side (Web3Forms) -->
+            <div class="contact-right">
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                    
+                    <!-- 🔑 Your Access Key -->
+                    <input type="hidden" name="access_key" value="0185b68c-646d-4b56-9b48-d0f443407725">
+
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+
+                    <!-- Optional: Redirect after success -->
+                    <!-- <input type="hidden" name="redirect" value="https://yourwebsite.com/thank-you.html"> -->
+
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
-     <div class="copyright">
-            <p>Developed <i class="fa-sharp fa-solid fa-copyright"></i> by Abhishek Gupta</p>
-        </div>
+</div>
+
+<div class="copyright">
+    <p>Developed <i class="fa-sharp fa-solid fa-copyright"></i> by Abhishek Gupta</p>
+</div>
+
+<!-- ✅ JavaScript for Success/Error Message -->
+<script>
+    const formm = document.querySelector(".contact-form");
+    const messge = document.getElementById("msg");
+
+    formm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(formm);
+        messge.innerHTML = "⏳ Sending...";
+
+        try {
+            const response = await fetch(formm.action, {
+                method: formm.method,
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                messge.innerHTML = "✅ Message Sent Successfully!";
+                messge.style.color = "green";
+                formm.reset();
+            } else {
+                messge.innerHTML = "❌ Something went wrong. Please try again.";
+                messge.style.color = "red";
+            }
+        } catch (error) {
+            messge.innerHTML = "⚠️ Network Error. Please check your connection.";
+            messge.style.color = "red";
+        }
+
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            messge.innerHTML = "";
+        }, 5000);
+    });
+</script>
+
 
     <!-- Back to Top Button -->
     <div class="back-to-top">
